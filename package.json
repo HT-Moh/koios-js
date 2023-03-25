@@ -1,0 +1,57 @@
+{
+  "name": "koios-js",
+  "version": "0.0.1",
+  "description": "A JavaScript/TypeScript SDK for interacting with the https://api.koios.rest/ API",
+  "keywords": [
+    "HT-Moh",
+    "cardano",
+    "cardano api"
+  ],
+  "license": "Apache-2.0",
+  "author": "profiler.biz",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.ts"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rimraf lib",
+    "docs": "yarn typedoc ./src/index.ts --theme github-wiki",
+    "lint": "eslint ./src/**/*.ts",
+    "prepublishOnly": "yarn build",
+    "test": "vitest --silent",
+    "type-check": "tsc --project ./tsconfig.types.json",
+    "make-badge": "make-coverage-badge --output-path='./coverage-badge.svg'",
+    "coverage": "vitest run --coverage --silent && make-badge",
+    "coverage-ci": "vitest run --coverage --silent"
+  },
+  "dependencies": {
+    "bottleneck": "^2.19.5",
+    "got": "^11.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "prettier": "^2.8.0",
+    "msw": "^0.49.1",
+    "nock": "^13.2.9",
+    "rimraf": "^3.0.2",
+    "serialize-error": "^11.0.0",
+    "typedoc": "^0.23.26",
+    "typedoc-github-wiki-theme": "^1.0.1",
+    "typedoc-plugin-markdown": "^3.14.0",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4",
+    "vitest": "^0.25.2"
+  },
+  "packageManager": "yarn@3.3.0",
+  "engines": {
+    "node": ">=16"
+  }
+}
